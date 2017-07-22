@@ -1,42 +1,57 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.xml.stream.Location;
 
 /**
- * Created by kaurk on 7/18/2017.
+ * Created by kaurk on 7/22/2017.
  */
-
-
-
-enum Location {
-    Hyderabad,Pune;
-}
-
 public class Employee {
-    @Override
-    public String toString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        return "Employee{" +
-               // "employeeId=" + employeeId +
-                ", employeeName='" + employeeName + '\'' +
-                ", dateOfBirth='" + simpleDateFormat.format(dateOfBirth) + '\'' +
-              //  ", dateOfJoining='" + dateOfJoining + '\'' +
-                '}';
-    }
+    private String firstName;
+    private String lastName;
+    private String deptName;
+    private int employeeId;
+    private Enum location;
 
-    public Employee(int employeeId, String employeeName, Date dateOfBirth, Date dateOfJoining, Location location) {
+    public Employee(String firstName, String lastName, String deptName, int employeeId, Enum location) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.deptName = deptName;
         this.employeeId = employeeId;
-        this.employeeName = employeeName;
-        this.dateOfBirth = dateOfBirth;
-        this.dateOfJoining = dateOfJoining;
         this.location = location;
     }
 
-    int employeeId ;
-    String employeeName;
-    Date dateOfBirth;
-    Date dateOfJoining;
-    Location location;
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", deptName='" + deptName + '\'' +
+                ", employeeId=" + employeeId +
+                ", location=" + location +
+                '}';
+    }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
 
     public int getEmployeeId() {
         return employeeId;
@@ -46,30 +61,11 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
+    public Enum getLocation() {
+        return location;
     }
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    public void setLocation(Enum location) {
+        this.location = location;
     }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public Date getDateOfJoining() {
-        return dateOfJoining;
-    }
-
-    public void setDateOfJoining(Date dateOfJoining) {
-        this.dateOfJoining = dateOfJoining;
-    }
-
-
-
 }
